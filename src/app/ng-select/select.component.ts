@@ -24,9 +24,6 @@ export class SelectComponent implements ControlValueAccessor, OnChanges, OnInit 
     // Data input.
     @Input() options: Array<IOption> = [];
 
-    // Remote data config
-    @Input() remoteConfig: any;
-
     // Functionality settings.
     @Input() allowClear: boolean = false;
     @Input() disabled: boolean = false;
@@ -51,6 +48,7 @@ export class SelectComponent implements ControlValueAccessor, OnChanges, OnInit 
     @Output() focus = new EventEmitter<null>();
     @Output() blur = new EventEmitter<null>();
     @Output() noOptionsFound = new EventEmitter<string>();
+    @Output() onFilterInputChanged = new EventEmitter<string>();
 
     @ViewChild('selection') selectionSpan: ElementRef;
     @ViewChild('dropdown') dropdown: SelectDropdownComponent;
@@ -160,7 +158,7 @@ export class SelectComponent implements ControlValueAccessor, OnChanges, OnInit 
     }
 
     onFilterInput(term: string) {
-        console.log(term)
+        this.onFilterInputChanged.emit(term);
         this.filter(term);
     }
 

@@ -3,3 +3,7 @@
     [options]="myOptions">
 </ng-select>
 
+<ng-select
+    style="width: 400px;"
+    [options]="remoteOptions" (onFilterInputChanged)="filterInputChanged($event)">
+</ng-select>
