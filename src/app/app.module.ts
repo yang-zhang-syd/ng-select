@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpModule} from '@angular/http';
 
 import { SelectModule } from './ng-select/ng-select.module';
 
@@ -11,6 +12,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     SelectModule
   ],
   providers: [],
